@@ -1,0 +1,28 @@
+이동현(Donghyun Lee) 20230490
+
+Impossible.
+If dest is a char pointer pointing to the beginning of a char array, during string copy,
+    it is possible to verify if the memory area is safe by using a while loop
+    that iterates until the null terminating character ('\0') is encountered.
+However, if dest is a char pointer unrelated to a string,
+    it is impossible to determine whether the referenced value is valid or an uninitialized garbage value.
+Therefore, it is impossible to verify if "the destination memory area specified by the caller" is safe (large enough).
+
+this is e.g. code. It is impossible that StrCopy func. attacks src array.
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char arr[10] = "asdfasdf";
+    char* cpyarr = arr - 3;
+    strcpy(cpyarr, arr);
+
+    printf("%s\n", arr);
+
+    return 0;
+}
+
+output: "fasdf"
+
+
+I used pointer notation to implement the str functions.

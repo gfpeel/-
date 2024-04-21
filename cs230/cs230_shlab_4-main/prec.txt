@@ -1,0 +1,6 @@
+#
+# prec.txt
+#
+/bin/echo echo runs
+./myspin 1
+jobs
